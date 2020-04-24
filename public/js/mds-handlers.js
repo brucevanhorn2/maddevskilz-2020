@@ -51,16 +51,20 @@ $(document).ready(function () {
             email: $("#contact-email").val(),
             message: $("#contact-text").val()
         }
-
-        $.ajax(
-            {
-                type: "POST",
-                url: "/api/contact",
-                data: formData,
-                success: showSuccessToast,
-                fail: showFailToast
-            }
-        );
+        //anything in there?
+        if(firstName.length < 1 || lastName.length < 1 || message.length < 1){
+            $.ajax(
+                {
+                    type: "POST",
+                    url: "/api/contact",
+                    data: formData,
+                    success: showSuccessToast,
+                    fail: showFailToast
+                }
+            );
+        } else {
+            return false;
+        }
     }
 
     initialize();
