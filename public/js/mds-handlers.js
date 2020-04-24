@@ -35,9 +35,38 @@ $(document).ready(function () {
         );
     }
 
+    function showSuccessToast(){
+        M.toast({html: "That worked!  We got it!  Thank you!"});
+    }
+
+    function showFailToast(){
+        M.toast({html: "Something went wrong.  It's us, not you.  Sorry."})
+    }
+
+    function contactFormHandler(event){
+        event.preventDefault();
+        const formData = {
+            firstName: $("#contact-first-name").val(),
+            lastName: $("#contact-last-name").val(),
+            email: $("#contact-email").val(),
+            message: $("#contact-text").val()
+        }
+
+        $.ajax(
+            {
+                type: "POST",
+                url: "/api/contact",
+                data: formData,
+                success: showSuccessToast,
+                fail: showFailToast
+            }
+        );
+    }
+
     initialize();
     navigation();
     $('.modal').modal();
     $('.sidenav').sidenav();
+    $('#contaxt-form').on("submit", contactFormHandler);
 
 });
