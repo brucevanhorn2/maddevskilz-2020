@@ -1,12 +1,18 @@
 {
   "name": "maddevskilz-2020",
   "version": "1.0.0",
-  "description": "This README would normally document whatever steps are necessary to get your application up and running.",
-  "main": "index.js",
+  "description": "The web site for the finest developer training anywhere",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Bruce M. Van Horn II",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "engines": {
+    "node": "10.x"
+  }
 }
