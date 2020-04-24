@@ -1,4 +1,5 @@
 const express = require("express");
+const postmark = require("postmark");
 const app = express();
 const PORT = process.env.PORT || 3000
 
@@ -10,24 +11,14 @@ app.use(express.json());
 app.post("/api/contact", function(req, res){
     //collect the data and send it
     let formData = req.body;
-    let transporter = nodemailer.createTransport({
-        host: "smtp.ethereal.email",
-        port: 587,
-        secure: false, // true for 465, false for other ports
-        auth: {
-          user: testAccount.user, // generated ethereal user
-          pass: testAccount.pass // generated ethereal password
-        }
-      });
+    var client = new postmark.ServerClient("2543114b-139c-4f0a-bcfb-c3173e4815ee");
 
-      let info = await transporter.sendMail({
-        from: formData.email, // sender address
-        to: "actual@contentfour.com", // list of receivers
-        subject: "[maddevskilz] Contact Form "+ formData.firstName + " " + formData.lastName, // Subject line
-        text: formData.firstName + " " + formData.lastName + "(" + formData.email + ") writes: " + formData.message
-      });
-
-      console.log("Message sent: %s", info.messageId);
+    client.sendEmail({
+        "From": formData.email,
+        "To": "actual@contentfour.com",
+        "Subject": "[maddevskilz] Contact Form "+ formData.firstName + " " + formData.lastName,
+        "TextBody": formData.firstName + " " + formData.lastName + "(" + formData.email + ") writes: " + formData.message
+    });
 
 });
 
