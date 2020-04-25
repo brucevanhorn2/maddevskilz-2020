@@ -12,13 +12,14 @@ app.post("/api/contact", function(req, res){
     //collect the data and send it
     let formData = req.body;
     var client = new postmark.ServerClient("2543114b-139c-4f0a-bcfb-c3173e4815ee");
-
+    //console.log(formData.message);
     client.sendEmail({
         "From": formData.email,
         "To": "actual@contentfour.com",
         "Subject": "[maddevskilz] Contact Form "+ formData.firstName + " " + formData.lastName,
         "TextBody": formData.firstName + " " + formData.lastName + "(" + formData.email + ") writes: " + formData.message
     });
+    res.end();
 
 });
 

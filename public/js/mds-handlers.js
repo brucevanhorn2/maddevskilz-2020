@@ -1,50 +1,69 @@
 $(document).ready(function () {
-    
-    function initialize(){
+
+    function initialize() {
         // run this first.  it's a spa.  this hides stuff.
         hideAll();
         $("#index-page-content").show();
     }
 
-    function hideAll(){
+    function hideAll() {
         $(".page-content").hide();
     }
 
-    function navigation(){
+    function navigation() {
         //sets up all the nav links and buttons with handlers
         $("#logo-container").click(initialize);
         $(".courses-link").click(
-            function(){ 
+            function () {
                 hideAll();
                 $("#courses-page-content").show();
             }
         );
 
         $(".free-videos-link").click(
-            function(){
+            function () {
                 hideAll();
                 $("#free-videos-page-content").show();
             }
         );
 
         $(".about-link").click(
-            function(){
+            function () {
                 hideAll();
                 $("#about-page-content").show();
             }
         );
+
+        $("#contact-submit").on("click", contactFormHandler)
     }
 
-    function showSuccessToast(){
-        M.toast({html: "That worked!  We got it!  Thank you!"});
+    function showSuccessToast() {
+        M.toast({ html: "That worked!  We got it!  Thank you!" });
     }
 
-    function showFailToast(){
-        M.toast({html: "Something went wrong.  It's us, not you.  Sorry."})
+    function showFailToast() {
+        M.toast({ html: "Something went wrong.  It's us, not you.  Sorry." })
     }
 
-    function contactFormHandler(event){
+    function removeSpaces(string) {
+        return string.split(' ').join('');
+    }
+
+    function contactFormHandler(event) {
         event.preventDefault();
+        //validate the captcha
+        let str1 = removeSpaces($("#txtCaptcha").val());
+        let str2 = removeSpaces($("#CaptchaInput").val());
+        if(!str2){
+            M.toast({ html: "You need to fill in the captcha."});
+            return false;
+        }
+
+        if(!str1 === str2){
+            M.toast({ html: "You got the captcha wrong."});
+            return false;
+        }
+
         const formData = {
             firstName: $("#contact-first-name").val(),
             lastName: $("#contact-last-name").val(),
@@ -52,7 +71,7 @@ $(document).ready(function () {
             message: $("#contact-text").val()
         }
         //anything in there?
-        if(firstName.length < 1 || lastName.length < 1 || message.length < 1){
+        if (formData.firstName.length < 1 || formData.lastName.length < 1 || formData.message.length < 1) {
             $.ajax(
                 {
                     type: "POST",
@@ -67,10 +86,23 @@ $(document).ready(function () {
         }
     }
 
+    function generateCaptcha(){
+        var a = Math.ceil(Math.random() * 9) + '';
+        var b = Math.ceil(Math.random() * 9) + '';
+        var c = Math.ceil(Math.random() * 9) + '';
+        var d = Math.ceil(Math.random() * 9) + '';
+        var e = Math.ceil(Math.random() * 9) + '';
+        var code = a + b + c + d + e;
+        return code;
+    }
+
     initialize();
     navigation();
     $('.modal').modal();
     $('.sidenav').sidenav();
-    $('#contaxt-form').on("submit", contactFormHandler);
+
+    const captcha = generateCaptcha();
+    $("#txtCaptcha").val(captcha);
+    $("#CaptchaDiv").html(captcha);
 
 });
