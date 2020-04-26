@@ -27,13 +27,6 @@ $(document).ready(function () {
             }
         );
 
-        $(".about-link").click(
-            function () {
-                hideAll();
-                $("#about-page-content").show();
-            }
-        );
-
         $("#contact-submit").on("click", contactFormHandler)
     }
 
