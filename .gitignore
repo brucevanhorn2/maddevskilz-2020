@@ -1,2 +1,5 @@
 node_modules
 .env 
+bitnami_credentials
+bitnami_application_password
+.DS_Store
