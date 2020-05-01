@@ -77,3 +77,18 @@ blockquote {
 hr {
 	width:76%''
 }
+
+.header-icon-img{
+	width: 300px;
+	height: 200px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.video-thumbnail{
+	border: black 1pt solid;
+	height: 50%;
+	width: 50%;
+}

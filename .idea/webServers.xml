@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="2b08dd57-5832-4a47-9586-cd75c99068e3" name="Lightsail Instance" url="https://www.maddevskilz.com">
+        <fileTransfer rootFolder="/home/bitnami/htdocs" accessType="SFTP" host="23.20.85.119" port="22" sshConfigId="434942ed-708d-4341-817e-a52a75959e2f" sshConfig="bitnami@23.20.85.119:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
