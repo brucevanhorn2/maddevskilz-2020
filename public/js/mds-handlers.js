@@ -116,15 +116,18 @@ $(document).ready(function () {
     $("#CaptchaDiv").html(captcha);
     
     var testimonialTimer = setInterval(function(){
-        console.log("Rotate");
         if(testimonialIndex++ < testimonials.length - 1){
             testimonialIndex++;
         } else {
             testimonialIndex = 0;
         }
-        console.log(testimonials[testimonialIndex].quote);
-        $("#testimonial").text(testimonials[testimonialIndex].quote);
-        $("#testimonial-citation").text(testimonials[testimonialIndex].by);
+        $("#testimonial").fadeOut(function(){
+            $("#testimonial").text(testimonials[testimonialIndex].quote).fadeIn();
+        });
+        $("#testimonial-citation").fadeOut(function(){
+            $("#testimonial-citation").text(testimonials[testimonialIndex].by).fadeIn();
+        });
+        
     }, 6000);
 
 });
