@@ -128,6 +128,6 @@ $(document).ready(function () {
             $("#testimonial-citation").text(testimonials[testimonialIndex].by).fadeIn();
         });
         
-    }, 6000);
+    }, 12000);
 
 });
