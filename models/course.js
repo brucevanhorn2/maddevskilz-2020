@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING,
     publisher: DataTypes.STRING,
     released: DataTypes.STRING,
-    url: DataTypes.STRING
+    url: DataTypes.STRING,
+    repositoryUrl: DataTypes.STRING
   }, {});
   Course.associate = function(models) {
     // associations can be defined here
