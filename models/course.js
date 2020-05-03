@@ -11,5 +11,5 @@ module.exports = (sequelize, DataTypes) => {
   Course.associate = function(models) {
     // associations can be defined here
   };
-  return Contact;
+  return Course;
 };
