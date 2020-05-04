@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING,
     url: DataTypes.STRING,
     published: DataTypes.STRING,
-    totalRunningTime: DataTypes.INT,
+    totalRunningTime: DataTypes.INTEGER,
     thumbnail: DataTypes.STRING
   }, {});
   Video.associate = function(models) {
