@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="Bruce Van Horn II">
+    <meta releaseDate="">
+    <title>Introduction to Postman</title>
+
+</head>
+<body>
+    <p>
+        Postman is a very popular tool for working with RESTful API’s.  It allows you to test your API endpoints without making a UI or a form, and it can also be used to explore and work with third party API’s.  In one of my recent videos, I showed how front-end developers could use a few node libraries to mock a back-end, allowing them to work on the front end, while the back-end team works on getting the endpoints available.  In this video, I want to introduce postman to our audience of new back-end developers who might not have heard of it yet.
+
+You can get the tool free at postman.com.  It works on PC, Mac, and Linux, and it actually has a lot of features and functionality to it.  I mainly use it to work with HTTP requests, and that’s what we’ll focus on today.
+    </p>
+    <p>
+Once you’ve got the tool installed, you need an API to play with.  I’m going to use the OMDB api, which is an open library of movies similar to IMDB.  If you want to following along, you’re going to need an API key from OMDB, and obviously, a copy of postman.
+    </p><p>
+If I visit the omdb web site, I’ll find some really excellent documentation along with examples.  Before we can use them, though, we need an API key.  An API key identifies the users of the API.  OMDB has two kinds.  The free kind, which is the one I’ll be using, and they also additional functionality if you contribute on Patreon, such as access to high definition movie posters.
+</p><p>
+Click on the API Key tab on the site, and select a free one.  You’re limited to 1,000 requests per day, but I think we’ll be OK.
+</p><p>
+Your API key is like a password.  You don’t want to share it with others, unless you’re working on a project together.  You also want to take care not to check it into your revision control system, github for example, in a public project where everyone can see it.
+</p><p>
+I’ve got my API key, and I’ll need it in just a moment, so I’ll copy it to the clipboard, and I’m going to drop it on a sticky note real quick, because I’m going to need to copy something else in just a minute and I want this where I can easily get to it.  All operating systems generally have a sticky note app.  If you can’t find one on your computer, just use a text editor like notepad or textedit.
+</p><p>
+Lets head back to the documentation page.  I can see here that I can search for movies using this endpoint.  If you’ve not heard the term endpoint, we’re just referring to a URL here that serves some purpose within the API.  Your front end uses AJAX, or restful calls to get data.  API calls are all about data, they’re not about looks or interactivity.
+</p><p>
+I need this URL, so I’ll copy it.  There’s a placeholder at the end for the api key, but this endpoint expects a few more parameters.  URL parameters are used to send data along with your HTTP GET requests.  You’ll see them tacked on to the end of a URL separated by a question mark, followed be a set of key value pairs, which are further separated by ampersands.
+</p><p>
+Postman has a feature for working with parameters.  You could just type it all into the request line, but you can also use this handy key value pair editor.  To use this, I’ll just take the end parameter off our sample endpoint, and transfer the parameters into the editor below where the URL is typed.
+</p><p>
+The parameter we’ll add after our API key is a search term for the title.  The documentation says the key for that is a lowercase t.  So I’ll add the t parameter and fill in a move title that I want to search for.  If you want to, you can substitute plus signs for spaces, since we all know how much the internet hates the space bar.  Heh heh, get it?  Space Bar?
+</p><p>
+Let’s add one more.  Let’s tell it we want the short version of the plot which is suitable for showing on a master page.  The longer description is better for detail pages.
+</p><p>
+You can continue adding parameters as you need to, but I’ll stop here.
+</p><p>
+
+Now click the send button.  If all goes well, you’ll get back some response as JSON.
+</p><p>
+From here you can see the structure of the data returned by the API.  You can also see the status codes returned by the request, and a few other pieces of information about the request, like how long it took.  I can review the request headers by switching the tab.  By default, it hides most of the widely used headers since you’re usually interesting in more customized headers you might have added via your back-end.  You can unhide them by clicking the eyeball.
+</p><p>
+That’s a quick introduction to Postman.  If you want to see other HTTP verbs like post, put, and delete, check out my video on mock back-ends with faker.  This video uses Node, but it’s applicable to any Restful API written in any language.
+</p><p>
+Be sure to check us out at maddevskilz.com for more videos on coding, testing, and DevOps from the developer point of view.  You can also find us on twitter @devskilz.  If you want to learn back-end development with Flask and Python, checkout my course on LinkedIn learning.  You’ll learn to build your very own API’s.  
+</p>
+
+
+</body>
+</html>

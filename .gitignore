@@ -4,3 +4,5 @@ bitnami_credentials
 bitnami_application_password
 .DS_Store
 *.sqlite3
+.DS_Store
+public/.DS_Store
