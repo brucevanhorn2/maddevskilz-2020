@@ -102,7 +102,15 @@ $(document).ready(function () {
     const captcha = generateCaptcha();
     $("#txtCaptcha").val(captcha);
     $("#CaptchaDiv").html(captcha);
-    
+    $(document).ready(function(){
+        $('.carousel').carousel();
+    });
+
+    setInterval(function(){
+        console.log("flipping");
+        $('.carousel').carousel('next');
+    }, 4000);
+
     var testimonialTimer = setInterval(function(){
         if(testimonialIndex++ < testimonials.length - 1){
             testimonialIndex++;

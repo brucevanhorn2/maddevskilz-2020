@@ -75,7 +75,7 @@ blockquote {
 }
 
 hr {
-	width:76%''
+	width:76%;
 }
 
 .header-icon-img{
@@ -91,4 +91,13 @@ hr {
 	border: black 1pt solid;
 	height: 50%;
 	width: 50%;
+}
+
+.carousel {
+	height:640px;
+}
+
+.carousel .carousel-item {
+	width: 80%;
+	height: 80%;
 }
