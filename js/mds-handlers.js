@@ -74,26 +74,14 @@ $(document).ready(function () {
             return false;
         }
 
-        const formData = {
+
+        database.ref('subscribers/').push({
             firstName: $("#contact-first-name").val(),
             lastName: $("#contact-last-name").val(),
             email: $("#contact-email").val(),
-            message: $("#contact-text").val()
-        }
-        //anything in there?
-        if (formData.firstName.length < 1 || formData.lastName.length < 1 || formData.message.length < 1) {
-            $.ajax(
-                {
-                    type: "POST",
-                    url: "/api/contact",
-                    data: formData,
-                    success: showSuccessToast,
-                    fail: showFailToast
-                }
-            );
-        } else {
-            return false;
-        }
+            isOptedOut: false,
+            dateAdded: firebase.database.ServerValue.TIMESTAMP
+        });
     }
 
     function generateCaptcha(){
