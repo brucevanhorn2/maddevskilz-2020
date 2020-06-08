@@ -75,13 +75,20 @@ $(document).ready(function () {
         }
 
 
-        database.ref('subscribers/').push({
+        database.ref('comments/').push({
             firstName: $("#contact-first-name").val(),
             lastName: $("#contact-last-name").val(),
             email: $("#contact-email").val(),
-            isOptedOut: false,
+            comment: $("#contact-text").val(),
             dateAdded: firebase.database.ServerValue.TIMESTAMP
         });
+
+        $("#contact-first-name").val("");
+        $("#contact-last-name").val("");
+        $("#contact-email").val("");
+        $("#contact-text").val("");
+        $("#CaptchaInput").val("");
+        generateCaptcha();  //so if you open it again, the old one isn't still sitting there filled in.
     }
 
     function generateCaptcha(){
